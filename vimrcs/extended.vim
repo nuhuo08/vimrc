@@ -31,6 +31,10 @@ set guioptions-=L
 set background=dark
 colorscheme peaksea
 
+set cursorline
+highlight CursorLine cterm=NONE ctermbg=8 ctermfg=NONE
+" set colorcolumn=80
+" highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs

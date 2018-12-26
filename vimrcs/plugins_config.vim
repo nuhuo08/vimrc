@@ -4,6 +4,9 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set number
+set mouse=a
+" set numberwidth=3
 
 """"""""""""""""""""""""""""""
 " => Load pathogen paths
@@ -28,7 +31,7 @@ map <leader>o :BufExplorer<cr>
 " => MRU plugin
 """"""""""""""""""""""""""""""
 let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
+map <leader>j :MRU<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -37,7 +40,7 @@ map <leader>f :MRU<CR>
 let g:yankstack_yank_keys = ['y', 'd']
 
 nmap <c-p> <Plug>yankstack_substitute_older_paste
-nmap <c-n> <Plug>yankstack_substitute_newer_paste
+" nmap <c-n> <Plug>yankstack_substitute_newer_paste
 
 
 """"""""""""""""""""""""""""""
@@ -46,7 +49,7 @@ nmap <c-n> <Plug>yankstack_substitute_newer_paste
 let g:ctrlp_working_path_mode = 0
 
 let g:ctrlp_map = '<c-f>'
-map <leader>j :CtrlP<cr>
+" map <leader>j :CtrlP<cr>
 map <c-b> :CtrlPBuffer<cr>
 
 let g:ctrlp_max_height = 20
@@ -65,6 +68,15 @@ let g:user_zen_mode='a'
 """"""""""""""""""""""""""""""
 ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
+" imap <c-j> <esc>a<Plug>snipMateNextOrTrigger
+" smap <c-j> <Plug>snipMateNextOrTrigger
+
+" YouCompleteMe and snipMate compatibility, with the helper of supertab
+" let g:ycm_key_list_select_completion   = ['<C-j>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_global_ycm_extra_conf = '~/.vim_runtime/my_plugins/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+set completeopt-=preview
 
 
 """"""""""""""""""""""""""""""
@@ -77,13 +89,16 @@ set grepprg=/bin/grep\ -nH
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', 'cscope*', 'tags']
 let g:NERDTreeWinSize=35
-map <leader>nn :NERDTreeToggle<cr>
+map <leader>nn :NERDTreeMirrorToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
+" autocmd vimenter * NERDTree
+let g:nerdtree_tabs_open_on_console_startup = 1
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -92,11 +107,11 @@ map <leader>nf :NERDTreeFind<cr>
 let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
-let g:multi_cursor_start_word_key      = '<C-s>'
+let g:multi_cursor_start_word_key      = '<C-n>'
 let g:multi_cursor_select_all_word_key = '<A-s>'
 let g:multi_cursor_start_key           = 'g<C-s>'
 let g:multi_cursor_select_all_key      = 'g<A-s>'
-let g:multi_cursor_next_key            = '<C-s>'
+let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
@@ -157,6 +172,8 @@ let g:go_fmt_command = "goimports"
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
+\   'c++': ['g++'],
+\   'c': ['gcc'],
 \   'javascript': ['jshint'],
 \   'python': ['flake8'],
 \   'go': ['go', 'golint', 'errcheck']
@@ -165,6 +182,7 @@ let g:ale_linters = {
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
 
 " Disabling highlighting
+" let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 
 " Only run linting when saving the file
@@ -175,5 +193,83 @@ let g:ale_lint_on_enter = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:gitgutter_enabled=0
+let g:gitgutter_enabled=1
+let g:gitgutter_diff_args = '-w'
+set updatetime=100
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => For vim-easytags and tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ----- xolox/vim-easytags settings -----
+" Where to look for tags files
+" set tags=./tags;,~/.vimtags
+set tags=./tags,tags;$HOME
+" set autochdir
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+let g:easytags_auto_highlight = 0
+
+" ----- majutsushi/tagbar settings -----
+" Open/close tagbar with ,tb
+nmap <silent> <leader>tb :TagbarToggle<CR>
+let g:tagbar_width = 35
+" Uncomment to open tagbar automatically whenever possible
+" autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => For SuperManual
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ----- jez/vim-superman settings -----
+" better man page support
+noremap K :SuperMan <cword><CR>
+
+" for cpp enhanced highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let c_no_curly_error=1
+
+" Remove all trailing whitespace by pressing F5
+" nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+nmap <F5> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files ;<CR>
+  \:!cscope -b -i cscope.files -f cscope.out<CR>
+  \:cs kill -1<CR>:cs add cscope.out<CR>
+
+nmap <F6> :!ctags -R *<CR>
+  \:set tags=tags<CR>
+
+"" for ConqueTerm
+let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
+let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
+let g:ConqueTerm_StartMessages = 0 " display warning messages if conqueTerm is configured incorrectly  
+
+
+"" for comfortable motion
+" nnoremap <silent> <C-d> :call comfortable_motion#flick(20)<CR>
+" nnoremap <silent> <C-u> :call comfortable_motion#flick(-20)<CR>
+" nnoremap <silent> <C-f> :call comfortable_motion#flick(2000)<CR>
+" nnoremap <silent> <C-b> :call comfortable_motion#flick(-2000)<CR>
+
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+for c in range(char2nr('A'), char2nr('Z'))
+  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+
+" Kill the capslock when leaving insert mode.
+autocmd InsertLeave * set iminsert=0
+
+" for vim-commentary
+autocmd FileType cpp setlocal commentstring=\/\/\ %s
+autocmd FileType c setlocal commentstring=\/\/\ %s
+
