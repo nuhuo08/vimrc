@@ -74,7 +74,7 @@ snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 " YouCompleteMe and snipMate compatibility, with the helper of supertab
 " let g:ycm_key_list_select_completion   = ['<C-j>', '<Down>']
 " let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-let g:ycm_global_ycm_extra_conf = '~/.vim_runtime/my_plugins/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim_runtime/sources_non_forked/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 set completeopt-=preview
 
