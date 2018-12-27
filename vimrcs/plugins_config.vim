@@ -91,7 +91,7 @@ set grepprg=/bin/grep\ -nH
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', 'cscope*', 'tags']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', 'cscope\.', 'tags']
 let g:NERDTreeWinSize=35
 map <leader>nn :NERDTreeMirrorToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<Space>

@@ -35,7 +35,10 @@ declare -a arr=("ale https://github.com/w0rp/ale"
 "vim-superman https://github.com/jez/vim-superman"
 "YCM-Generator https://github.com/rdnetto/YCM-Generator"
 "YouCompleteMe https://github.com/Valloric/YouCompleteMe"
+"vim-peepopen https://github.com/shemerey/vim-peepopen"
 )
+
+# "peaksea https://github.com/vim-scripts/peaksea"
 
 if [ ! -d sources_non_forked ]; then
 	mkdir sources_non_forked
