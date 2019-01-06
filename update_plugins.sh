@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt install cscope
+
 declare -a arr=("ale https://github.com/w0rp/ale"
 "vim-yankstack https://github.com/maxbrunsfeld/vim-yankstack"
 "ack.vim https://github.com/mileszs/ack.vim"
@@ -28,16 +30,16 @@ declare -a arr=("ale https://github.com/w0rp/ale"
 "mru.vim https://github.com/vim-scripts/mru.vim"
 "tabular https://github.com/godlygeek/tabular"
 "a.vim https://github.com/vim-scripts/a.vim"
-"fcitx.vim https://github.com/vim-scripts/fcitx.vim"
 "tagbar https://github.com/majutsushi/tagbar"
 "vim-easymotion https://github.com/easymotion/vim-easymotion"
 "vim-nerdtree-tabs https://github.com/jistr/vim-nerdtree-tabs"
 "vim-superman https://github.com/jez/vim-superman"
 "YCM-Generator https://github.com/rdnetto/YCM-Generator"
-"YouCompleteMe https://github.com/Valloric/YouCompleteMe"
-"vim-peepopen https://github.com/shemerey/vim-peepopen"
 )
 
+# "YouCompleteMe https://github.com/Valloric/YouCompleteMe"
+# "fcitx.vim https://github.com/vim-scripts/fcitx.vim"
+# "vim-peepopen https://github.com/shemerey/vim-peepopen"
 # "peaksea https://github.com/vim-scripts/peaksea"
 
 if [ ! -d sources_non_forked ]; then
@@ -60,6 +62,10 @@ do
 	fi
 done
 
-cd YouCompleteMe
-git submodule update --init --recursive --depth 1
+# cd YouCompleteMe
+# git submodule update --init --recursive --depth 1
+# # cmake for 16.04, cmake3 for 14.04
+# sudo apt install build-essential cmake python3-dev
+# cd YouCompleteMe
+# python3 install.py --clang-completer
 
