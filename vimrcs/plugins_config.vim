@@ -46,7 +46,7 @@ nmap <c-p> <Plug>yankstack_substitute_older_paste
 """"""""""""""""""""""""""""""
 " => CTRL-P
 """"""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
 
 let g:ctrlp_map = '<c-f>'
 " map <leader>j :CtrlP<cr>
@@ -74,9 +74,10 @@ snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 " YouCompleteMe and snipMate compatibility, with the helper of supertab
 " let g:ycm_key_list_select_completion   = ['<C-j>', '<Down>']
 " let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-let g:ycm_global_ycm_extra_conf = '~/.vim_runtime/sources_non_forked/YouCompleteMe/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-set completeopt-=preview
+
+" let g:ycm_global_ycm_extra_conf = '~/.vim_runtime/sources_non_forked/YouCompleteMe/.ycm_extra_conf.py'
+" let g:ycm_confirm_extra_conf = 0
+" set completeopt-=preview
 
 
 """"""""""""""""""""""""""""""
@@ -171,23 +172,23 @@ let g:go_fmt_command = "goimports"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_linters = {
-\   'c++': ['g++'],
-\   'c': ['gcc'],
-\   'javascript': ['jshint'],
-\   'python': ['flake8'],
-\   'go': ['go', 'golint', 'errcheck']
-\}
+" let g:ale_linters = {
+" \   'c++': ['g++'],
+" \   'c': ['gcc'],
+" \   'javascript': ['jshint'],
+" \   'python': ['flake8'],
+" \   'go': ['go', 'golint', 'errcheck']
+" \}
 
-nmap <silent> <leader>a <Plug>(ale_next_wrap)
+" nmap <silent> <leader>a <Plug>(ale_next_wrap)
 
-" Disabling highlighting
-" let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
+" " Disabling highlighting
+" " let g:ale_sign_column_always = 1
+" let g:ale_set_highlights = 0
 
-" Only run linting when saving the file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
+" " Only run linting when saving the file
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_enter = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
