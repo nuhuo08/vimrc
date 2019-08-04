@@ -229,7 +229,7 @@ let g:tagbar_width = 35
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ----- jez/vim-superman settings -----
 " better man page support
-noremap K :SuperMan <cword><CR>
+" noremap K :SuperMan <cword><CR>
 
 " for cpp enhanced highlight
 let g:cpp_class_scope_highlight = 1
