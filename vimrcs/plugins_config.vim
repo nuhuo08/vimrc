@@ -242,7 +242,7 @@ let c_no_curly_error=1
 " Remove all trailing whitespace by pressing F5
 " nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-nmap <F5> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files ;<CR>
+nmap <F5> :!find . -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' -o -iname '*.hxx' > cscope.files ;<CR>
   \:!cscope -b -i cscope.files -f cscope.out<CR>
   \:cs kill -1<CR>:cs add cscope.out<CR>
 
@@ -273,4 +273,5 @@ autocmd InsertLeave * set iminsert=0
 " for vim-commentary
 autocmd FileType cpp setlocal commentstring=\/\/\ %s
 autocmd FileType c setlocal commentstring=\/\/\ %s
+autocmd FileType matlab setlocal commentstring=\%\ %s
 
