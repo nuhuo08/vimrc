@@ -54,9 +54,6 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = ","
 
-" close quickfix window
-map <leader>k :cclose<cr>
-
 " Fast saving
 nmap <leader>w :w!<cr>
 

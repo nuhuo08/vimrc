@@ -2,8 +2,7 @@
 
 sudo apt install cscope
 
-declare -a arr=("ale https://github.com/w0rp/ale"
-"vim-yankstack https://github.com/maxbrunsfeld/vim-yankstack"
+declare -a arr=("vim-yankstack https://github.com/maxbrunsfeld/vim-yankstack"
 "ack.vim https://github.com/mileszs/ack.vim"
 "bufexplorer https://github.com/corntrace/bufexplorer"
 "ctrlp.vim https://github.com/ctrlpvim/ctrlp.vim"
@@ -25,7 +24,6 @@ declare -a arr=("ale https://github.com/w0rp/ale"
 "vim-gitgutter https://github.com/airblade/vim-gitgutter"
 "vim-flake8 https://github.com/nvie/vim-flake8"
 "lightline.vim https://github.com/itchyny/lightline.vim"
-"lightline-ale https://github.com/maximbaz/lightline-ale"
 "vim-abolish https://github.com/tpope/tpope-vim-abolish"
 "mru.vim https://github.com/vim-scripts/mru.vim"
 "tabular https://github.com/godlygeek/tabular"
@@ -34,8 +32,12 @@ declare -a arr=("ale https://github.com/w0rp/ale"
 "vim-easymotion https://github.com/easymotion/vim-easymotion"
 "vim-nerdtree-tabs https://github.com/jistr/vim-nerdtree-tabs"
 "vim-superman https://github.com/jez/vim-superman"
-"YCM-Generator https://github.com/rdnetto/YCM-Generator"
+"vim-togglelist https://github.com/milkypostman/vim-togglelist"
 )
+
+# "lightline-ale https://github.com/maximbaz/lightline-ale"
+# "ale https://github.com/w0rp/ale"
+# "YCM-Generator https://github.com/rdnetto/YCM-Generator"
 
 # "YouCompleteMe https://github.com/Valloric/YouCompleteMe"
 # "fcitx.vim https://github.com/vim-scripts/fcitx.vim"
